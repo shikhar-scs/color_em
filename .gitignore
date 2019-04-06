@@ -1,0 +1,7 @@
+*.DS_Store
+frontendWorks/.DS_Store
+node_modules/
+package-lock.json
+api/imageUsers/
+.idea/
+api/ml_models

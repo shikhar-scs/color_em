@@ -1,0 +1,29 @@
+{
+  "name": "lhash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shikhar-scs/lhash.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shikhar-scs/lhash/issues"
+  },
+  "homepage": "https://github.com/shikhar-scs/lhash#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-fileupload": "^1.0.0-alpha.1",
+    "express-formidable": "^1.0.0",
+    "formidable": "^1.2.1",
+    "mongodb": "^3.1.6",
+    "path": "^0.12.7"
+  }
+}
