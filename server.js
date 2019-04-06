@@ -11,22 +11,16 @@ const routes = {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-
 app.use('/dashboard', routes.dashboard);
-
 app.use(express.static(path.join(__dirname,'/frontendWorks')));
-
 app.get('/',(req,res)=>{
     res.redirect('/dashboard/uploadImages');
 });
-
 app.use(fileupload());
-
 app.post('/imageupload', (req, res) => {
 
     if (!req.files)
         return res.status(400).send('No files were uploaded.');
-    console.log(req.files.sampleFile)
     const sampleFile = req.files.sampleFile
 
     sampleFile.mv(__dirname + '/frontendWorks/dist/imageUsers/black_image.jpg', function(err) {
@@ -36,7 +30,7 @@ app.post('/imageupload', (req, res) => {
 
     imageVision()
         .then((d)=>{
-                    console.log('imagevision ka .then() ->' + d)
+                    console.log(d)
                 res.send(d)
         })
 

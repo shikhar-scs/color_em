@@ -37,21 +37,21 @@ $(function() {
 		minHeight: $(window).outerHeight() - 95
 	})
 
-	$("[data-toggle='sidebar']").click(function() {
-		var body = $("body");
-
-		body.removeClass('search-show search-gone');
-		if(body.hasClass('sidebar-gone')) {
-			body.removeClass('sidebar-gone');
-			body.addClass('sidebar-show');
-			sidebar_nicescroll.resize();
-		}else{
-			body.addClass('sidebar-gone');
-			body.removeClass('sidebar-show');
-			sidebar_nicescroll.resize();
-		}
-		return false;
-	});
+	// $("[data-toggle='sidebar']").click(function() {
+	// 	var body = $("body");
+	//
+	// 	body.removeClass('search-show search-gone');
+	// 	if(body.hasClass('sidebar-gone')) {
+	// 		body.removeClass('sidebar-gone');
+	// 		body.addClass('sidebar-show');
+	// 		sidebar_nicescroll.resize();
+	// 	}else{
+	// 		body.addClass('sidebar-gone');
+	// 		body.removeClass('sidebar-show');
+	// 		sidebar_nicescroll.resize();
+	// 	}
+	// 	return false;
+	// });
 
 	$("[data-toggle='search']").click(function() {
 		var body = $("body");
@@ -65,23 +65,23 @@ $(function() {
 		}
 	});
 
-	var toggleSidebar = function() {
-		var w = $(window);
-		if(w.outerWidth() <= 1024) {
-			$("body").addClass("sidebar-gone");
-			$("body").off('click').on('click', function(e) {
-				if($(e.target).hasClass('sidebar-show') || $(e.target).hasClass('search-show')) {
-					$("body").removeClass("sidebar-show");
-					$("body").addClass("sidebar-gone");
-					$("body").removeClass("search-show");
-				}
-			});
-		}else{
-			$("body").removeClass("sidebar-gone");
-		}
-	}
-	toggleSidebar();
-	$(window).resize(toggleSidebar);
+	// var toggleSidebar = function() {
+	// 	var w = $(window);
+	// 	if(w.outerWidth() <= 1024) {
+	// 		$("body").addClass("sidebar-gone");
+	// 		$("body").off('click').on('click', function(e) {
+	// 			if($(e.target).hasClass('sidebar-show') || $(e.target).hasClass('search-show')) {
+	// 				$("body").removeClass("sidebar-show");
+	// 				$("body").addClass("sidebar-gone");
+	// 				$("body").removeClass("search-show");
+	// 			}
+	// 		});
+	// 	}else{
+	// 		$("body").removeClass("sidebar-gone");
+	// 	}
+	// }
+	// toggleSidebar();
+	// $(window).resize(toggleSidebar);
 
 	// tooltip
 	$("[data-toggle='tooltip']").tooltip();

@@ -2,14 +2,12 @@
 import os
 import sys
 import scipy.misc
-import shutil
 import numpy as np
 from skimage import color
 from keras.models import load_model
 from skimage.transform import resize
 from keras.preprocessing import image
 from keras.applications.inception_resnet_v2 import InceptionResNetV2, preprocess_input
-from keras.applications.inception_resnet_v2 import InceptionResNetV2
 import tensorflow as tf
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
@@ -18,8 +16,7 @@ inception = InceptionResNetV2(weights=None,include_top=True)
 inception.load_weights('api/ml_models/inception_resnet_v2_weights_tf_dim_ordering_tf_kernels.h5')
 inception.graph = tf.get_default_graph()
 
-model = load_model('api/ml_models/Model_7_batch.h5')
-
+model = load_model('api/ml_models/Model_8_batch.h5')
 
 def create_inception_embedding(grayscaled_rgb):
     grayscaled_rgb_resized = []
@@ -31,7 +28,6 @@ def create_inception_embedding(grayscaled_rgb):
     with inception.graph.as_default():
         embed = inception.predict(grayscaled_rgb_resized)
     return embed
-
 
 color_me = []
 for filename in os.listdir('frontendWorks/dist/imageUsers/'):
@@ -45,29 +41,16 @@ color_me_embed = create_inception_embedding(color_me)
 color_me = color.rgb2lab(color_me)[:,:,:,0]
 color_me = color_me.reshape(color_me.shape+(1,))
 
-
 # Test model
 output = model.predict([color_me, color_me_embed])
 output = output * 128
 
-
 # Output colorizations
-
-
 for i in range(len(output)):
     cur = np.zeros((256, 256, 3))
     cur[:,:,0] = color_me[i][:,:,0]
     cur[:,:,1:] = output[i]
     scipy.misc.imsave("frontendWorks/dist/image_Output/img_"+str(i)+".png", color.lab2rgb(cur))
 
-
 print("done")
-# checkPath = os.path.join(os.path.dirname(__file__), '../imageUsers')
-
-# if not os.path.exists(checkPath):
-#     os.makedirs(checkPath)
-# else:
-#     shutil.rmtree(os.path.join(os.path.dirname(__file__), '../imageUsers'))
-#     os.makedirs(checkPath)
-
 sys.stdout.flush()
