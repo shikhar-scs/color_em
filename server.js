@@ -5,16 +5,12 @@ const app = express();
 const config = require('./config.json')
 const fileupload = require('express-fileupload');
 
-const routes = {
-    dashboard: require('./api/dashboard').route
-};
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-app.use('/dashboard', routes.dashboard);
 app.use(express.static(path.join(__dirname,'/frontendWorks')));
 app.get('/',(req,res)=>{
-    res.redirect('/dashboard/uploadImages');
+    res.sendFile(path.join(__dirname,'frontendWorks/portfolio.html'));
 });
 app.use(fileupload());
 app.post('/imageupload', (req, res) => {
