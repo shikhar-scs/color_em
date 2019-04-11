@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
-const config = require('./config.json')
+const config = require('./config.json');
 const fileupload = require('express-fileupload');
 
 
@@ -17,7 +17,7 @@ app.post('/imageupload', (req, res) => {
 
     if (!req.files)
         return res.status(400).send('No files were uploaded.');
-    const sampleFile = req.files.sampleFile
+    const sampleFile = req.files.sampleFile;
 
     sampleFile.mv(__dirname + '/frontendWorks/dist/imageUsers/black_image.jpg', function(err) {
         if (err)
@@ -26,13 +26,13 @@ app.post('/imageupload', (req, res) => {
 
     imageVision()
         .then((d)=>{
-                    console.log(d)
+                    console.log(d);
                 res.send(d)
-        })
+        });
 
     function imageVision() {
         return new Promise((res, rej) => {
-            console.log('imagevision')
+            console.log('imagevision');
             const spawn = require('child_process').spawn;
             let py = spawn('python', [path.join(__dirname, 'api/pythonScripts/imgcap.py')]);
 
