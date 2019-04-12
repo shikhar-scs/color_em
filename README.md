@@ -2,10 +2,6 @@
 
 Taking inspiration from the work by [Emil Walner](https://github.com/emilwallner) on how to colorize black and white images, we've built a neural network which has four components. <br>
 
-## Built by 
-[Shikhar](https://github.com/shikhar-scs) <br>
-[Soumya](https://github.com/himanish-star)
-
 ## Workflow
 
 We split the network we had before into an encoder and a decoder. Between them, we’ll use a fusion layer. <br>
@@ -24,10 +20,11 @@ A single set of 1024 images, trained over 200 epochs, took 7.5 hrs. A total of 1
 
 ## Intermediary Results
 
+<To be updated soon>
 
 ## Local Setup
 
-Clone the repository
+Clone the repository <br>
 Download the models from [here](https://drive.google.com/drive/folders/1tR_5xlqRvm-xdVexu7FaGitult68JdVR?usp=sharing) and place them in `api/ml_models` directory.
 
 ```javascript
@@ -39,6 +36,5 @@ choose from a set of given images in directory `testing_images`
 
 ## What now ?
 
-Would be awesome if someone could help us with a free and reliable online service where we can train our model further. 
-
-The model code lies in thr jupyter file. Any tweakings to the script which could benefit us will be appreciated. 
+Would be awesome if someone could help us with a free and reliable online service where we can train our model further. \
+The ML code lies in the jupyter file. Any tweakings to the script which could benefit us will be appreciated. 
