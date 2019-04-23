@@ -20,7 +20,11 @@ A single set of 1024 images, trained over 200 epochs, took 7.5 hrs. A total of 1
 
 ## Intermediary Results
 
-<To be updated soon>
+### 1. Black & White Image | 2. Our Locally Trained Model | 3. State of the Art Coloring Model
+<img width="680" alt="Screenshot 2019-04-23 at 10 42 59 PM" src="https://user-images.githubusercontent.com/25258877/56604142-f3fce500-661e-11e9-870b-23cc57204e26.png">
+<img width="676" alt="Screenshot 2019-04-23 at 10 43 08 PM" src="https://user-images.githubusercontent.com/25258877/56604143-f4957b80-661e-11e9-9fac-cfb2ea2059de.png">
+<img width="701" alt="Screenshot 2019-04-23 at 10 43 21 PM" src="https://user-images.githubusercontent.com/25258877/56604145-f4957b80-661e-11e9-954d-7427fa0caf24.png">
+
 
 ## Local Setup
 
