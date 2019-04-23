@@ -242,6 +242,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script>
     function send_image(e) {
 
+        setTimeout(()=>$("#black_image").attr("src","http://localhost:3000/dist/imageUsers/black_image.jpg"),2000)
             var image = new FormData($('#uploadForm')[0]);
         $.ajax({
           url: "/imageupload",
@@ -254,34 +255,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
           }
         }).done( (data) => {
             console.log(data)
-                // $("#black_image").removeClass("hide")
-                // $("#black_image").attr("src","");
-                $("#black_image").attr("src","http://localhost:3000/dist/imageUsers/black_image.jpg");
-
-               // $("#color_image").removeClass("hide")
-               //  $("#color_image").attr("src","")
                 $("#color_image").attr("src","http://localhost:3000/dist/image_Output/img_0.png")
         })
-            original_model()
-
     }
-
     $('#submit_btn').click(()=>send_image())
-
-    function original_model() {
-        setTimeout(()=> {
-            var input = {
-                "image": "/dist/imageUsers/black_image.jpg"
-            };
-            Algorithmia.client("simk2rPWnlgo0ujH5Zl/ixo8BBl1")
-                .algo("deeplearning/ColorfulImageColorization/1.1.13?timeout=300") // timeout is optional
-                .pipe(input)
-                .then(function (output) {
-                    console.log(output);
-                });
-        },5000)
-    }
-
 </script>
 
 
